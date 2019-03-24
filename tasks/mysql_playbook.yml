@@ -13,6 +13,15 @@
   apt:
     name: python-mysqldb
     state: present
+- name: Remove test database
+  mysql_db:
+    name: test
+    state: absent
+- name: Remove user anonymous user mysql
+  mysql_user:
+    name: ''
+    host_all: yes
+    state: absent
 - name: Rubah root password
   mysql_user:
     name: root
@@ -23,12 +32,3 @@
     - 127.0.0.1
     - ::1
     - localhost
-- name: Remove test database
-  mysql_db:
-    name: test
-    state: absent
-- name: Remove user anonymous user mysql
-  mysql_user:
-    name: ''
-    host_all: yes
-    state: absent

@@ -23,14 +23,14 @@
   debconf: 
     name: phpmyadmin 
     question: 'phpmyadmin/mysql/app-pass' 
-    value: '{{mysql_root_pass}}' 
-    vtype:'password'
+    value: '{{ root_db_password }}' 
+    vtype: 'password'
 
 - name: debconf for pma
   debconf: 
     name: phpmyadmin 
     question: 'phpmyadmin/reconfigure-webserver' 
-    value:'apache2' 
+    value: 'apache2' 
     vtype: 'multiselect'
 - name: Install php dan phpmyadmin
   apt:
